@@ -20,9 +20,7 @@ app.use(bodyParser.urlencoded({extended:true}));
 });
  
  app.post('/register',function(req,res){
-     console .log("hii");
-     
-     
+     console .log("hii");     
 //     // validate the input
 //  req.checkBody('username', 'Username is required').notEmpty();
 //  req.checkBody('password', 'Password is required').notEmpty();
@@ -41,7 +39,7 @@ app.use(bodyParser.urlencoded({extended:true}));
 //    res.render('register', { flash: { type: 'alert-success', messages: [ { msg: 'No errors!' }]}});
 //  }
      
-   var user=new User({
+   var user = new User({
            
  	 Adharno:req.body.Adharno,
  	 email:req.body.email,
@@ -49,7 +47,7 @@ app.use(bodyParser.urlencoded({extended:true}));
          repassword:req.body.confpassword,
          Mobile:req.body.Mobile
  	});
-      console.log("hii");
+//      console.log("hii");
 //     req.checkBody({
 // 'email': {
 //    optional: {
@@ -77,9 +75,8 @@ app.use(bodyParser.urlencoded({extended:true}));
 //    
 //    
 //  }
-});
-//        
-//     
+
+     
  	user.save(function(err,user){
  		if(err){
                     console.log(err);
@@ -89,14 +86,12 @@ app.use(bodyParser.urlencoded({extended:true}));
             console.log(user);
             //res.json({"message":"useradded successfully"});
             res.send(user);
-            
-        	
-        }
+                 }
         
  	});
- //});
+});
  
  
-       app.listen(process.env.PORT || 3001,function(){
-                 console.log('listening the port number is', 3001);
-         });
+app.listen(process.env.PORT || 3001,function(){
+     console.log('listening the port number is', 3001);
+       });
