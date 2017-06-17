@@ -23,16 +23,16 @@ app.use(bodyParser.urlencoded({extended:true}));
      console .log("hii");
      
      
-     // validate the input
-  req.checkBody('username', 'Username is required').notEmpty();
-  req.checkBody('password', 'Password is required').notEmpty();
-   req.checkBody('email', 'Email is required').notEmpty();
-  req.checkBody('email', 'Email does not appear to be valid').isEmail();
-
-  // check the validation object for errors
-  var errors = req.validationErrors();
-
-  console.log(errors);  
+//     // validate the input
+//  req.checkBody('username', 'Username is required').notEmpty();
+//  req.checkBody('password', 'Password is required').notEmpty();
+//   req.checkBody('email', 'Email is required').notEmpty();
+//  req.checkBody('email', 'Email does not appear to be valid').isEmail();
+//
+//  // check the validation object for errors
+//  var errors = req.validationErrors();
+//
+//  console.log(errors);  
 
 //  if (errors) {
 //    res.render('register', { flash: { type: 'alert-danger', messages: errors }});
@@ -40,18 +40,16 @@ app.use(bodyParser.urlencoded({extended:true}));
 //  else {
 //    res.render('register', { flash: { type: 'alert-success', messages: [ { msg: 'No errors!' }]}});
 //  }
-
      
-
-//   var user=new User({
-//           
-// 	 Adharno:req.body.Adharno,
-// 	 email:req.body.email,
-//         password:req.body.password,
-//         confpassword:req.body.confpassword,
-//         Mobile:req.body.Mobile
-// 	});
-//     console.log("hii");
+   var user=new User({
+           
+ 	 Adharno:req.body.Adharno,
+ 	 email:req.body.email,
+         password:req.body.password,
+         repassword:req.body.confpassword,
+         Mobile:req.body.Mobile
+ 	});
+      console.log("hii");
 //     req.checkBody({
 // 'email': {
 //    optional: {
@@ -82,23 +80,23 @@ app.use(bodyParser.urlencoded({extended:true}));
 });
 //        
 //     
-// 	user.save(function(err,user){
-// 		if(err){
-//                    console.log(err);
-// 		res.send(err);	
-// 			
-//        }else{
-//            console.log(user);
-//            //res.json({"message":"useradded successfully"});
-//            res.send(user);
-//            
-//        	
-//        }
-//        
-// 	})
-// });
-// 
-// 
-       app.listen(3001,function(){
+ 	user.save(function(err,user){
+ 		if(err){
+                    console.log(err);
+ 		res.send(err);	
+ 			
+        }else{
+            console.log(user);
+            //res.json({"message":"useradded successfully"});
+            res.send(user);
+            
+        	
+        }
+        
+ 	});
+ //});
+ 
+ 
+       app.listen(process.env.PORT || 3001,function(){
                  console.log('listening the port number is', 3001);
          });
