@@ -1,21 +1,28 @@
 {
-    "name": "medicalApp",
-    "version": "1.0.0",
-    "keywords": [
-        "util",
-        "functional",
-        "server",
-        "client",
-        "browser"
-    ],
-    "author": "ahextech",
-    "contributors": [],
-    "dependencies": {
-        "bcrypt-nodejs": "0.0.3",
-        "body-parser": "^1.17.2",
-        "ejs": "^2.5.6",
-        "express": "^4.15.3",
-        "express-validator": "^3.2.0",
-        "mongoose": "^4.10.6"
-    }
+  "name": "medicalApp",
+  "version": "1.0.0",
+  "keywords": [
+    "util",
+    "functional",
+    "server",
+    "client",
+    "browser"
+  ],
+  "author": "ahextech",
+  "contributors": [],
+  "dependencies": {
+    "bcrypt-nodejs": "0.0.3",
+    "body-parser": "^1.17.2",
+    "ejs": "^2.5.6",
+    "express": "^4.15.3",
+    "express-validator": "^3.2.0",
+    "mongoose": "^4.10.6"
+  },
+  "main": "main.js",
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "license": "ISC",
+  "description": ""
 }

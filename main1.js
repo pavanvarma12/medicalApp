@@ -25,13 +25,14 @@ app.use(expressValidator());  //this line to be addded
     user.Mobile = req.body.Mobile;
      
 //    // Validation
-//    req.checkBody('Adharno', 'andharno is required.').notEmpty();
-//    req.checkBody('email', 'Email is required.').notEmpty();
-//    req.checkBody('email', 'Email is not valid').isEmail(); 
-//    req.checkBody('password', 'Password is required').notEmpty();
-//    req.checkBody('repassword', 'Passwords do not match').equals(req.body.password);
+    req.checkBody('Adharno', 'andharno is required.').notEmpty();
+    req.checkBody('email', 'Email is required.').notEmpty();
+    req.checkBody('email', 'Email is not valid').isEmail(); 
+    req.checkBody('password', 'Password is required').notEmpty();
+    req.checkBody('repassword', 'Passwords do not match').equals(req.body.password);
 console.log('1');
-req.checkBody({
+
+      req.checkBody({
     'Adharno':
             {
          notEmpty:true   
@@ -67,7 +68,7 @@ req.checkBody({
 
 
     var errors = req.validationErrors();
-
+      console.log("eee");
     if(errors) {
         res.status(400).send({ "message": "Missing parameter" });
 //      res.render('register', {
