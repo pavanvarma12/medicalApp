@@ -26,6 +26,11 @@ app.use(bodyParser.urlencoded({extended:true}));
    app.use(bodyParser.json());
    app.use(expressValidator());
    
+   app.use(express.static(__dirname + '/public'));
+app.set('views', __dirname + '/public/views');
+app.engine('jade', require('ejs').renderFile);
+app.set('view engine', 'jade')
+   
    app.get('/', function(req,res){
        res.send("ok");
     //if(req.body.name )
@@ -54,15 +59,17 @@ app.use(bodyParser.urlencoded({extended:true}));
       var errors = req.validationErrors();
   console.log(errors);  
             if (errors) {
-                console.log('hi1');
-                res.json({"message":"error message"})
-                // res.render('register', { flash: { type: 'alert-danger', messages: errors }});
+                //console.log('hi1');
+                res.send(errors);
+                 return;
+                //res.json({"message":"error message"})
+                 //res.render('error', { flash: { type: 'alert-danger', messages: errors }});
            }
-        else {
-            console.log("hi");
+        //else {
+           // console.log("hi");
             //res.json({"message":"success"});
     //res.render('register', { flash: { type: 'alert-success', messages: [ { msg: 'No errors!' }]}});
-          }
+//}
  	user.save(function(err,user){
  		if(err){
                     console.log(err);
@@ -92,11 +99,12 @@ app.use(bodyParser.urlencoded({extended:true}));
 
             
             console.log(user);
-            //res.json({"message":"useradded successfully"});
-            res.send(user);
+            res.json({"message":"user registered successfully and saved in database"});
+            //res.send(user);
                  }
         
  	});
+    
 });
 
  
