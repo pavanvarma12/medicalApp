@@ -26,11 +26,11 @@ app.use(bodyParser.urlencoded({extended:true}));
    app.use(bodyParser.json());
    app.use(expressValidator());
    
-   app.use(express.static(__dirname + '/public'));
-app.set('views', __dirname + '/public/views');
-app.engine('jade', require('ejs').renderFile);
-app.set('view engine', 'jade')
-   
+//   app.use(express.static(__dirname + '/public'));
+//app.set('views', __dirname + '/public/views');
+//app.engine('jade', require('ejs').renderFile);
+//app.set('view engine', 'jade')
+//   
    app.get('/', function(req,res){
        res.send("ok");
     //if(req.body.name )
