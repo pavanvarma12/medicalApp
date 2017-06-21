@@ -95,4 +95,9 @@
 ////  
 ////     });
 ////     
-//// 
+////
+
+//"/^(?=.*?[A-Z])(?=.*?[0-9])$/"
+//req.checkBody('dateofbirth', 'Invalid dateofbirth').notEmpty.isDate();
+//req.checkBody('password', 'Invalid possword').notEmpty().len(8, 30);
+//.matches('/^(?=.*\d)(?=.*[a-zA-Z])$/','/^(?=.*\d)(?=.*[a-zA-Z])$/', 'i')
