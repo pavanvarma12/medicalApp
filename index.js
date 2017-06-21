@@ -41,11 +41,11 @@ app.use(bodyParser.urlencoded({extended:true}));
      console .log("hii");  
      
    //validate the inputs
-  req.checkBody('Adharno', 'adharno is integer').notEmpty().isInt();
+  req.checkBody('Adharno', 'adharno is integer and required').notEmpty().isInt();
   req.checkBody('password', 'Password should be combination of one numerical and one capitalletter').notEmpty();
   req.checkBody('repassword', 'Passwords do not match').equals(req.body.password);
    req.checkBody('email', 'Email is required').notEmpty().isEmail();
-   req.checkBody('Mobile', 'not more than 10').isInt().len(10,10);
+   req.checkBody('Mobile', 'mobile number must be 10 digits').isInt().len(10,10);
    
    var user = new User({
          Adharno:req.body.Adharno,
@@ -59,7 +59,7 @@ app.use(bodyParser.urlencoded({extended:true}));
       var errors = req.validationErrors();
   console.log(errors);  
             if (errors) {
-                //console.log('hi1');
+                //res.status(400).json({ errors: 'message' })
                 res.send(errors);
                  return;
                 //res.json({"message":"error message"})
@@ -72,7 +72,7 @@ app.use(bodyParser.urlencoded({extended:true}));
 //}
  	user.save(function(err,user){
  		if(err){
-                    console.log(err);
+                    //console.log(err);
  		res.send(err);	
  			
         }else{
@@ -99,6 +99,7 @@ app.use(bodyParser.urlencoded({extended:true}));
 
             
             console.log(user);
+            //res.status(400).json({ error: 'message' })
             res.json({"message":"user registered successfully and saved in database"});
             //res.send(user);
                  }
