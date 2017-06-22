@@ -7,11 +7,6 @@ var User= require('./model/usermodel');
 var bodyParser = require('body-parser');
 var expressValidator = require('express-validator');
 var validator = require('validator');
-//  var nodemailer = require('nodemailer');
-// 
-//var mandrillTransport = require('nodemailer-mandrill-transport');
-//
-
 
   //connect to mongodb
 // try{
@@ -33,8 +28,7 @@ app.use(bodyParser.urlencoded({extended:true}));
 //   
    app.get('/', function(req,res){
        res.send("ok");
-    //if(req.body.name )
-	
+    	
 });
  
  app.post('/register',function(req,res){
@@ -59,47 +53,21 @@ app.use(bodyParser.urlencoded({extended:true}));
       var errors = req.validationErrors();
   console.log(errors);  
             if (errors) {
-                //res.status(400).json({ errors: 'message' })
-                res.send(errors);
+                  res.send(errors);
                  return;
-                //res.json({"message":"error message"})
+                
                  //res.render('error', { flash: { type: 'alert-danger', messages: errors }});
            }
         //else {
-           // console.log("hi");
-            //res.json({"message":"success"});
+          
     //res.render('register', { flash: { type: 'alert-success', messages: [ { msg: 'No errors!' }]}});
 //}
  	user.save(function(err,user){
  		if(err){
-                    console.log(err);
- 		//res.send(err);	
+                   res.send(err);	
  			
         }else{
-//            
-//            var transport = nodemailer.createTransport(mandrillTransport({
-//  auth: {
-//    apiKey: 'VvguSUqlBAQIdaDZthadSw'
-//  }
-//}));
-// 
-//                 transport.sendMail({
-//                              //from: 'sender@example.com',
-//                                from:'pavanvarmab5@gmail.com',
-//                                 to: 'pavanvarmab5@gmail.com',
-//                                 subject: 'hi', //'Hello'
-//                                html: '<p>How are you?</p>'
-//                }, function(err, info) {
-//                                   if (err) {
-//                                         console.error(err);
-//                                 } else {
-//                                   console.log(info);
-//                }
-//            });
-
-            
-            console.log(user);
-            //res.status(400).json({ error: 'message' })
+//              
             res.json({"message":"user registered successfully and saved in database"});
             //res.send(user);
                  }
@@ -108,7 +76,6 @@ app.use(bodyParser.urlencoded({extended:true}));
     
 });
 
- 
-app.listen(process.env.PORT || 3000,function(){
-     console.log('listening the port number is', 3000);
+    app.listen(process.env.PORT || 3000,function(){
+           console.log('listening the port number is', 3000);
        });
