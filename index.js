@@ -9,13 +9,13 @@ var expressValidator = require('express-validator');
 var validator = require('validator');
 
   //connect to mongodb
- try{
- mongoose.connect('mongodb://localhost:27017/mean');
- }catch(err){
-     console.log('connection failed');
- }
+// try{
+// mongoose.connect('mongodb://localhost:27017/mean');
+// }catch(err){
+//     console.log('connection failed');
+// }
  //middleware service
-//mongoose.connect ('mongodb://root:root@ds131742.mlab.com:31742/medicine')
+mongoose.connect ('mongodb://root:root@ds131742.mlab.com:31742/medicine')
  
 app.use(bodyParser.urlencoded({extended:true}));
    app.use(bodyParser.json());
