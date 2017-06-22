@@ -70,7 +70,7 @@ app.use(bodyParser.urlencoded({extended:true}));
 //                            //res.send(err);
 // 				res.json ({"errmsg":'that email is already  taken ry another'});
 //                            }
-                            res.json ({"errmsg":'that email is already  taken ry another'});
+                            res.json ({"errmsg":'This  email is already  taken try another'});
                  //res.send(err);	
  			
         }else{
