@@ -73,7 +73,7 @@ app.use(bodyParser.urlencoded({extended:true}));
  	user.save(function(err,user){
  		if(err){
                     //console.log(err);
- 		res.send(err);	
+ 		//res.send(err);	
  			
         }else{
 //            
