@@ -35,11 +35,11 @@ app.use(bodyParser.urlencoded({extended:true}));
      console .log("hii");  
      
    //validate the inputs
-  req.checkBody('Adharno', 'adharno is integer and required').notEmpty().isInt();
+  req.checkBody('adharno', 'adharno is integer and required').notEmpty().isInt();
   req.checkBody('password', 'Password should be combination of one numerical and one capitalletter').notEmpty();
   req.checkBody('repassword', 'Passwords do not match').equals(req.body.password);
    req.checkBody('email', 'Email is required').notEmpty().isEmail();
-   req.checkBody('Mobile', 'mobile number must be 10 digits').isInt().len(10,10);
+   req.checkBody('mobile', 'mobile number must be 10 digits').isInt().len(10,10);
    
    var user = new User({
          Adharno:req.body.adharno,
