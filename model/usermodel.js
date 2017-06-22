@@ -18,6 +18,7 @@ var UserSchema=new Schema({
        email:{
              type: String,
              required:true,
+             unique:true,
           match: [/.+\@.+\..+/, "Please fill a valid e-mail address"]
         },
          Mobile:{

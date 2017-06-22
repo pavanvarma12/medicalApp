@@ -51,10 +51,10 @@ app.use(bodyParser.urlencoded({extended:true}));
         console.log("helloooo");
 
       var errors = req.validationErrors();
-  console.log(errors);  
+  //console.log(errors);  
             if (errors) {
                   res.send(errors);
-                 return;
+                 //return;
                 
                  //res.render('error', { flash: { type: 'alert-danger', messages: errors }});
            }
@@ -64,7 +64,11 @@ app.use(bodyParser.urlencoded({extended:true}));
 //}
  	user.save(function(err,user){
  		if(err){
-                   //res.send(err);	
+                    var err='try again';
+ 			if(err.code === 11000){
+ 				error='that email is already  taken ry another';
+                            }
+                 res.json(err);  //res.send(err);	
  			
         }else{
 //              
