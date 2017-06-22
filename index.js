@@ -58,13 +58,13 @@ app.use(bodyParser.urlencoded({extended:true}));
                 
                  //res.render('error', { flash: { type: 'alert-danger', messages: errors }});
            }
-        //else {
+        else {
           
     //res.render('register', { flash: { type: 'alert-success', messages: [ { msg: 'No errors!' }]}});
 //}
  	user.save(function(err,user){
  		if(err){
-                   res.send(err);	
+                   //res.send(err);	
  			
         }else{
 //              
@@ -73,7 +73,7 @@ app.use(bodyParser.urlencoded({extended:true}));
                  }
         
  	});
-    
+        }
 });
 
     app.listen(process.env.PORT || 3000,function(){
