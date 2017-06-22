@@ -9,13 +9,13 @@ var expressValidator = require('express-validator');
 var validator = require('validator');
 
   //connect to mongodb
-// try{
-// mongoose.connect('mongodb://localhost:27017/mean');
-// }catch(err){
-//     console.log('connection failed');
-// }
+ try{
+ mongoose.connect('mongodb://localhost:27017/mean');
+ }catch(err){
+     console.log('connection failed');
+ }
  //middleware service
-mongoose.connect ('mongodb://root:root@ds131742.mlab.com:31742/medicine')
+//mongoose.connect ('mongodb://root:root@ds131742.mlab.com:31742/medicine')
  
 app.use(bodyParser.urlencoded({extended:true}));
    app.use(bodyParser.json());
@@ -58,28 +58,31 @@ app.use(bodyParser.urlencoded({extended:true}));
                 
                  //res.render('error', { flash: { type: 'alert-danger', messages: errors }});
            }
-        else {
+        //else {
           
     //res.render('register', { flash: { type: 'alert-success', messages: [ { msg: 'No errors!' }]}});
 //}
  	user.save(function(err,user){
  		if(err){
-                    var err='try again';
- 			if(err.code === 11000){
- 				error='that email is already  taken ry another';
-                            }
-                 res.json(err);  //res.send(err);	
+//                    var err='try again';
+// 			if(err.code === 11000){
+//                            consol;e.log('12');
+//                            //res.send(err);
+// 				res.json ({"errmsg":'that email is already  taken ry another'});
+//                            }
+                            res.json ({"errmsg":'that email is already  taken ry another'});
+                 //res.send(err);	
  			
         }else{
-//              
+            console.log('123');  
             res.json({"message":"user registered successfully and saved in database"});
             //res.send(user);
                  }
         
  	});
-        }
+        
 });
 
-    app.listen(process.env.PORT || 3000,function(){
-           console.log('listening the port number is', 3000);
+    app.listen(process.env.PORT || 3001,function(){
+           console.log('listening the port number is', 3001);
        });
