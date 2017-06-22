@@ -7,10 +7,10 @@ var User= require('./model/usermodel');
 var bodyParser = require('body-parser');
 var expressValidator = require('express-validator');
 var validator = require('validator');
-  var nodemailer = require('nodemailer');
- 
-var mandrillTransport = require('nodemailer-mandrill-transport');
-
+//  var nodemailer = require('nodemailer');
+// 
+//var mandrillTransport = require('nodemailer-mandrill-transport');
+//
 
 
   //connect to mongodb
@@ -48,11 +48,11 @@ app.use(bodyParser.urlencoded({extended:true}));
    req.checkBody('Mobile', 'mobile number must be 10 digits').isInt().len(10,10);
    
    var user = new User({
-         Adharno:req.body.Adharno,
+         Adharno:req.body.adharno,
  	 email:req.body.email,
          password:req.body.password,
          repassword:req.body.repassword,
-         Mobile:req.body.Mobile
+         Mobile:req.body.mobile
  	});
         console.log("helloooo");
 
@@ -72,7 +72,7 @@ app.use(bodyParser.urlencoded({extended:true}));
 //}
  	user.save(function(err,user){
  		if(err){
-                    //console.log(err);
+                    console.log(err);
  		//res.send(err);	
  			
         }else{
