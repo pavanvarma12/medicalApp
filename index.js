@@ -7,12 +7,14 @@ var bodyParser = require('body-parser');
 var expressValidator = require('express-validator');
 var validator = require('validator');
 var morgan = require('morgan'); 
+
   //connect to mongodb
 // try{
 // mongoose.connect('mongodb://localhost:27017/mean');
 // }catch(err){
 //     console.log('connection failed');
 // }
+
  //middleware service
 mongoose.connect ('mongodb://root:root@ds131742.mlab.com:31742/medicine')
  
@@ -80,15 +82,16 @@ app.use(bodyParser.urlencoded({extended:true}));
 User.findOne({email:req.body.email},function(err,user){
     //if(!req)
 	if(!user){
-            res.json({"message":"email is  doesn't  exists"});
+            res.json({success: false,  message:"email is  doesn't  exists"});
 		//res.sendFile(path.resolve(__dirname + '/./public/view/login.html'));
 		//res.render('login.html',{error:'invalid email and password'});
 	}else{
 		if(req.body.password === user.password){
-                   res.json({"message":"login successfully"}); 
+                     //res.status(200);
+                   res.json({success: true, message:"login successfully"}); 
 			//res.redirect('/dashboard');
 		}else{
-                    res.json({"message":"password is not mathching"})
+                    res.json({success: false, message:"password is not mathching"})
 			//res.sendFile(path.resolve(__dirname + '/./public/view/login.html'));
 			//res.render('login.html',{error : 'Invalid email or password'});		
 		}
