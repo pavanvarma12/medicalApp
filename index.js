@@ -44,10 +44,10 @@ app.use(bodyParser.urlencoded({extended:true}));
    req.checkBody('mobile', 'mobile number must be 10 digits').isInt().len(10,10);
    
    var user = new User({
-         Adharno:req.body.adharno,
+         Adharno:req.body.aadharno,
  	 email:req.body.email,
          password:req.body.password,
-         repassword:req.body.repassword,
+         repassword:req.body.confirmPassword,
          Mobile:req.body.mobile
  	});
         console.log("helloooo");
@@ -78,17 +78,16 @@ app.use(bodyParser.urlencoded({extended:true}));
   app.post('/login',function(req,res){
   if(!req.body.email || !req.body.password) {
     res.json({ success: false, message: 'Please enter email and password.' });
-  } else {    
-User.findOne({email:req.body.email},function(err,user){
-    //if(!req)
+     } else {    
+               User.findOne({email:req.body.email},function(err,user){
+   
 	if(!user){
-            res.json({success: false,  message:"email is  doesn't  exists"});
+            res.json({success: false,  message:"email is  doesn't exists in database"});
 		//res.sendFile(path.resolve(__dirname + '/./public/view/login.html'));
 		//res.render('login.html',{error:'invalid email and password'});
 	}else{
 		if(req.body.password === user.password){
-                     //res.status(200);
-                   res.json({success: true, message:"login successfully"}); 
+                 res.json({success: true, message:"login successfully"}); 
 			//res.redirect('/dashboard');
 		}else{
                     res.json({success: false, message:"password is not mathching"})
@@ -97,10 +96,8 @@ User.findOne({email:req.body.email},function(err,user){
 		}
 	}
 })
-  }
+     }
  });
-
-  
 
     app.listen(process.env.PORT || 3001,function(){
            console.log('listening the port number is', 3001);
