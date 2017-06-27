@@ -82,15 +82,17 @@ app.use(bodyParser.urlencoded({extended:true}));
                User.findOne({email:req.body.email},function(err,user){
    
 	if(!user){
-            res.json({success: false,  message:"email is  doesn't exists in database"});
+            res.send({success: false, msg: 'Authentication failed. User not found.'});
+            //res.json({success: false,  message:"email is  doesn't exists in database"});
 		//res.sendFile(path.resolve(__dirname + '/./public/view/login.html'));
 		//res.render('login.html',{error:'invalid email and password'});
 	}else{
 		if(req.body.password === user.password){
-                 res.json({success: true, message:"login successfully"}); 
+                 res.send({success: true, message:"login successfully"}); 
 			//res.redirect('/dashboard');
 		}else{
-                    res.json({success: false, message:"password is not mathching"})
+                     res.send({success: false, msg: 'Authentication failed. Wrong password.'});
+                    //res.json({success: false, message:"password is not mathching"})
 			//res.sendFile(path.resolve(__dirname + '/./public/view/login.html'));
 			//res.render('login.html',{error : 'Invalid email or password'});		
 		}
