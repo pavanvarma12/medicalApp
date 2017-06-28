@@ -9,14 +9,14 @@ var validator = require('validator');
 var morgan = require('morgan'); 
 
   //connect to mongodb
-// try{
-// mongoose.connect('mongodb://localhost:27017/mean');
-// }catch(err){
-//     console.log('connection failed');
-// }
+ try{
+ mongoose.connect('mongodb://localhost:27017/mean');
+ }catch(err){
+     console.log('connection failed');
+ }
 
  //middleware service
-mongoose.connect ('mongodb://root:root@ds131742.mlab.com:31742/medicine')
+//mongoose.connect ('mongodb://root:root@ds131742.mlab.com:31742/medicine')
  
 app.use(bodyParser.urlencoded({extended:true}));
    app.use(bodyParser.json());
@@ -79,19 +79,20 @@ app.use(bodyParser.urlencoded({extended:true}));
   if(!req.body.email || !req.body.password) {
     res.json({ success: false, message: 'Please enter email and password.' });
      } else {    
-               User.findOne({email:req.body.email},function(err,user){
+               
+          User.findOne({email:req.body.email},function(err,user){
    
 	if(!user){
-            res.send({success: false, msg: 'Authentication failed. User not found.'});
+            res.status(404).send({success: false, msg: 'Authentication failed. User not found.'});
             //res.json({success: false,  message:"email is  doesn't exists in database"});
 		//res.sendFile(path.resolve(__dirname + '/./public/view/login.html'));
 		//res.render('login.html',{error:'invalid email and password'});
 	}else{
 		if(req.body.password === user.password){
-                 res.send({success: true, message:"login successfully"}); 
+                 res.status(200).send({success: true, message:"login successfully"}); 
 			//res.redirect('/dashboard');
 		}else{
-                     res.send({success: false, msg: 'Authentication failed. Wrong password.'});
+                     res.status(401).send({success: false, msg: 'Authentication failed. Wrong password.'});
                     //res.json({success: false, message:"password is not mathching"})
 			//res.sendFile(path.resolve(__dirname + '/./public/view/login.html'));
 			//res.render('login.html',{error : 'Invalid email or password'});		
@@ -99,8 +100,7 @@ app.use(bodyParser.urlencoded({extended:true}));
 	}
 })
      }
- });
-
+});
     app.listen(process.env.PORT || 3001,function(){
            console.log('listening the port number is', 3001);
        });
