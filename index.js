@@ -12,11 +12,11 @@ var loginController=require('./controllers/login.controller');
 var medicineController=require('./controllers/medecine.controller');
 
 
-app.use(function(req, res, next) {
-  res.header("Access-Control-Allow-Origin", "*");
-  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-  next();
-});
+//app.use(function(req, res, next) {
+//  res.header("Access-Control-Allow-Origin", "*");
+//  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+//  next();
+//});
 
 
 
@@ -28,7 +28,7 @@ app.use(function(req, res, next) {
 // }
 
  //middleware service
-mongoose.connect ('mongodb://root:root@ds131742.mlab.com:31742/medicine')
+//mongoose.connect ('mongodb://root:root@ds131742.mlab.com:31742/medicine')
  
 app.use(bodyParser.urlencoded({extended:true}));
    app.use(bodyParser.json());
@@ -45,11 +45,11 @@ app.use(bodyParser.urlencoded({extended:true}));
     	
 });
 
-  app.post('/register',registerController.register);
-  app.post('/login',loginController.login);
-//app.get('/search',medicineController.list);
-//app.post('/medecine',medicineController.medicine);
-
+//  app.post('/register',registerController.register);
+//  app.post('/login',loginController.login);
+//  app.get('/search',medicineController.list);
+//  app.post('/medecine',medicineController.medicine);
+//
 
     app.listen(process.env.PORT || 3001,function(){
            console.log('listening the port number is', 3001);
