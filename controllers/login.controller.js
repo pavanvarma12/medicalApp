@@ -4,7 +4,7 @@ var jwt = require('jsonwebtoken');
 var Secret = 'ahex'; 
 module.exports.login=function(req,res){
 
- User.findOne({
+  User.findOne({
     email: req.body.email
   }, function(err, user) {
     if (err) throw err;

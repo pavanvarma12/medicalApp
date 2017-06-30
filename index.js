@@ -48,7 +48,7 @@ app.use(bodyParser.urlencoded({extended:true}));
   app.post('/register',registerController.register);
   app.post('/login',loginController.login);
 //app.get('/search',medicineController.list);
-app.post('/medecine',medicineController.medicine);
+//app.post('/medecine',medicineController.medicine);
 
 
     app.listen(process.env.PORT || 3001,function(){
