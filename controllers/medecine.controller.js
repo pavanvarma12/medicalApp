@@ -10,7 +10,7 @@ var Medicine= require('../model/medicinemodel');
             res.json(err);
         }
         else{
-                    res.status(200).json(user);
+          res.status(200).json(user);
         }
                
     });

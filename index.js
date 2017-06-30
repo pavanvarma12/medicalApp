@@ -28,28 +28,28 @@ var medicineController=require('./controllers/medecine.controller');
 // }
 
  //middleware service
-//mongoose.connect ('mongodb://root:root@ds131742.mlab.com:31742/medicine')
+mongoose.connect ('mongodb://root:root@ds131742.mlab.com:31742/medicine')
  
 app.use(bodyParser.urlencoded({extended:true}));
    app.use(bodyParser.json());
    app.use(expressValidator());
    app.use(morgan('dev'));  
    
-//   app.use(express.static(__dirname + '/public'));
-//app.set('views', __dirname + '/public/views');
-//app.engine('jade', require('ejs').renderFile);
-//app.set('view engine', 'jade')
-//   
+app.use(express.static(__dirname + '/public'));
+app.set('views', __dirname + '/public/views');
+app.engine('jade', require('ejs').renderFile);
+app.set('view engine', 'jade')
+   
    app.get('/', function(req,res){
        res.send("ok");
     	
 });
 
-//  app.post('/register',registerController.register);
-//  app.post('/login',loginController.login);
-//  app.get('/search',medicineController.list);
-//  app.post('/medecine',medicineController.medicine);
-//
+  app.post('/register',registerController.register);
+  app.post('/login',loginController.login);
+  app.get('/search',medicineController.list);
+  app.post('/medecine',medicineController.medicine);
+
 
     app.listen(process.env.PORT || 3003,function(){
            console.log('listening the port number is', 3003);
