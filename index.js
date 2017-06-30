@@ -47,7 +47,7 @@ app.use(bodyParser.urlencoded({extended:true}));
 
   app.post('/register',registerController.register);
   app.post('/login',loginController.login);
-app.get('/search',medicineController.list);
+//app.get('/search',medicineController.list);
 app.post('/medecine',medicineController.medecine);
 
 
