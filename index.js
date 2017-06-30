@@ -51,6 +51,6 @@ app.use(bodyParser.urlencoded({extended:true}));
 //  app.post('/medecine',medicineController.medicine);
 //
 
-    app.listen(process.env.PORT || 3001,function(){
-           console.log('listening the port number is', 3001);
+    app.listen(process.env.PORT || 3003,function(){
+           console.log('listening the port number is', 3003);
        });
