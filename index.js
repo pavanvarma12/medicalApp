@@ -1,7 +1,7 @@
 var express=require('express');
 var app= express();
 var mongoose =require('mongoose');
-var path =require('path');
+//var path =require('path');
 var User= require('./model/usermodel');
 var bodyParser = require('body-parser');
 var expressValidator = require('express-validator');
@@ -48,7 +48,7 @@ app.use(bodyParser.urlencoded({extended:true}));
   app.post('/register',registerController.register);
   app.post('/login',loginController.login);
 //app.get('/search',medicineController.list);
-app.post('/medecine',medicineController.medecine);
+app.post('/medecine',medicineController.medicine);
 
 
     app.listen(process.env.PORT || 3001,function(){
