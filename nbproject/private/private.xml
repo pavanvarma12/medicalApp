@@ -4,10 +4,10 @@
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
             <file>file:/var/www/html/medicalApp/controllers/login.controller.js</file>
-            <file>file:/var/www/html/medicalApp/index1.js</file>
             <file>file:/var/www/html/medicalApp/model/medicinemodel.js</file>
             <file>file:/var/www/html/medicalApp/model/usermodel.js</file>
             <file>file:/var/www/html/medicalApp/index.js</file>
+            <file>file:/var/www/html/medicalApp/package.json</file>
             <file>file:/var/www/html/medicalApp/controllers/Register.controller.js</file>
             <file>file:/var/www/html/medicalApp/controllers/medecine.controller.js</file>
         </group>
