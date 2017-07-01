@@ -2,6 +2,7 @@ var bcrypt = require('bcrypt-nodejs');
 var User= require('../model/usermodel');
 var jwt = require('jsonwebtoken');
 var Secret = 'ahex'; 
+
 module.exports.login=function(req,res){
   User.findOne({
     email: req.body.email

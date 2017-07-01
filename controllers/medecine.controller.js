@@ -1,3 +1,4 @@
+
 var Medicine= require('../model/medicinemodel');
  module.exports.medicine = function (req, res) {
     var user = new Medicine({
