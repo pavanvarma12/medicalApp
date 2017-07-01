@@ -10,7 +10,7 @@ var morgan = require('morgan');
 var registerController=require('./controllers/Register.controller');
 var loginController=require('./controllers/login.controller');
 var medicineController=require('./controllers/medecine.controller');
-
+app.set( 'port', ( process.env.PORT || 3003 ));
 
 //app.use(function(req, res, next) {
 //  res.header("Access-Control-Allow-Origin", "*");
@@ -21,14 +21,14 @@ var medicineController=require('./controllers/medecine.controller');
 
 
   //connect to mongodb
-// try{
-// mongoose.connect('mongodb://localhost:27017/mean');
-// }catch(err){
-//     console.log('connection failed');
-// }
+ try{
+ mongoose.connect('mongodb://localhost:27017/mean');
+ }catch(err){
+     console.log('connection failed');
+ }
 
  //middleware service
-mongoose.connect('mongodb://root:root@ds131742.mlab.com:31742/medicine')
+//mongoose.connect('mongodb://root:root@ds131742.mlab.com:31742/medicine')
  
 app.use(bodyParser.urlencoded({extended:true}));
    app.use(bodyParser.json());
@@ -51,6 +51,9 @@ app.set('view engine', 'jade')
   app.post('/medecine',medicineController.medicine);
 
 
-    app.listen(process.env.PORT || 3003,function(){
-           console.log('listening the port number is', 3003);
-       });
+//    app.listen(process.env.PORT || 3003,function(){
+//           console.log('listening the port number is', 3003);
+//       });
+app.listen( app.get( 'port' ), function() {
+  console.log( 'Node server is running on port ' + app.get( 'port' ));
+  });

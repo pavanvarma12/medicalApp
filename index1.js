@@ -88,4 +88,14 @@
 //	}
 //})
 //     }
+//}var mongoClient = require('mongodb').MongoClient;
+//collection.updateOne({
+//"first_name": "Yashwant"
+//}, {
+//$set: {
+//"age": 45
 //}
+//}, function(err, results) {
+//console.log(results.result);
+//});
+ 
