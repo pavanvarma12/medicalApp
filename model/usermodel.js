@@ -11,7 +11,6 @@ var UserSchema=new Schema({
    Mobile:{type: Number,required:true }
       });
       
-     
     UserSchema.pre('save', function (next) {
     var user = this;
     //if (!user.isModified('password')) return next();

@@ -1,4 +1,4 @@
-//
+/
 //var bodyParser = require('body-parser');
 //  var express = require('express');
 //  var app = express();
@@ -101,13 +101,13 @@
 //req.checkBody('dateofbirth', 'Invalid dateofbirth').notEmpty.isDate();
 //req.checkBody('password', 'Invalid possword').notEmpty().len(8, 30);
 //.matches('/^(?=.*\d)(?=.*[a-zA-Z])$/','/^(?=.*\d)(?=.*[a-zA-Z])$/', 'i')
-if (errors['username'])
-    span.text-error #{errors['username'].msg}
-
-
-
-
- User.findOne({
+//if (errors['username'])
+//    span.text-error #{errors['username'].msg}
+//
+//
+//
+//
+// User.findOne({
 //    email: req.body.email
 //  }, function(err, user) {
 //    if (err) throw err;
@@ -133,38 +133,38 @@ if (errors['username'])
 //      
       
       
-    User.findOne({
-        email:req.body.email
-    }, function(err, user) {
-        if(err) return res.json(user);
-        if(!user){
-            res.json({message:'authentication failed',
-                        sucess: false});
-        }else if(user){
-            var validPassword = user.passComparison(req.body.password);
-            if(!validPassword){
-                res.json({
-                    sucess:false,
-                    message:'authentication failed due to password failer'
-                });
-            }else{
-                var token = jwt.sign(user
-                    //name : user.name,
-                    //email: user.email
-                ,superSecret,{
-                    expiresIn : '1h'
-                });
-                res.json({
-                    sucess: true,
-                    message:'enjoy your token',
-                    token : token
-                });
-
-            }
-        }
-    });
-});  
-//  UserSchema.pre('save', function (next) {  
+//    User.findOne({
+//        email:req.body.email
+//    }, function(err, user) {
+//        if(err) return res.json(user);
+//        if(!user){
+//            res.json({message:'authentication failed',
+//                        sucess: false});
+//        }else if(user){
+//            var validPassword = user.passComparison(req.body.password);
+//            if(!validPassword){
+//                res.json({
+//                    sucess:false,
+//                    message:'authentication failed due to password failer'
+//                });
+//            }else{
+//                var token = jwt.sign(user
+//                    //name : user.name,
+//                    //email: user.email
+//                ,superSecret,{
+//                    expiresIn : '1h'
+//                });
+//                res.json({
+//                    sucess: true,
+//                    message:'enjoy your token',
+//                    token : token
+//                });
+//
+//            }
+//        }
+//    });
+//});  
+////  UserSchema.pre('save', function (next) {  
 //  var user = this;
 //  if (this.isModified('password') || this.isNew) {
 //    bcrypt.genSalt(10, function (err, salt) {
@@ -200,20 +200,20 @@ if (errors['username'])
 
 
 
- UserSchema.pre('save',function(next){
-    var user = this;
-    if(!user.isModified('password'))
-        return next();
-    bcrypt.hash(user.password,null,null,function(err,hash){
-        if(err) return next(err);
-        user.password = hash;
-        next();
-
-    });
-});
-     UserSchema.methods.passComparison = function(password){
-        var user = this;
-        return bcrypt.compareSync(password,user.password);
-
-     };
-    
+// UserSchema.pre('save',function(next){
+//    var user = this;
+//    if(!user.isModified('password'))
+//        return next();
+//    bcrypt.hash(user.password,null,null,function(err,hash){
+//        if(err) return next(err);
+//        user.password = hash;
+//        next();
+//
+//    });
+//});
+//     UserSchema.methods.passComparison = function(password){
+//        var user = this;
+//        return bcrypt.compareSync(password,user.password);
+//
+//     };
+//    
