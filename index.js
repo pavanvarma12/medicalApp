@@ -28,7 +28,7 @@ var medicineController=require('./controllers/medecine.controller');
 // }
 
  //middleware service
-mongoose.connect ('mongodb://root:root@ds131742.mlab.com:31742/medicine')
+mongoose.connect('mongodb://root:root@ds131742.mlab.com:31742/medicine')
  
 app.use(bodyParser.urlencoded({extended:true}));
    app.use(bodyParser.json());
