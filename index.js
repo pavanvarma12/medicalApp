@@ -11,6 +11,7 @@ var registerController=require('./controllers/Register.controller');
 var loginController=require('./controllers/login.controller');
 var medicineController=require('./controllers/medecine.controller');
 app.set( 'port', ( process.env.PORT || 3003 ));
+var favicon = require('favicon');
 
 //app.use(function(req, res, next) {
 //  res.header("Access-Control-Allow-Origin", "*");
@@ -21,14 +22,15 @@ app.set( 'port', ( process.env.PORT || 3003 ));
 
 
   //connect to mongodb
-// try{
-// mongoose.connect('mongodb://localhost:27017/mean');
-// }catch(err){
-//     console.log('connection failed');
-// }
+ try{
+ mongoose.connect('mongodb://localhost:27017/mean');
+ console.log("database connected");
+ }catch(err){
+     console.log('connection failed');
+ }
 
  //middleware service
-mongoose.connect('mongodb://root:root@ds131742.mlab.com:31742/medicine')
+//mongoose.connect('mongodb://root:root@ds131742.mlab.com:31742/medicine')
  
 app.use(bodyParser.urlencoded({extended:true}));
    app.use(bodyParser.json());
