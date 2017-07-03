@@ -6,7 +6,7 @@ var path =require('path');
 var bodyParser = require('body-parser');
 var expressValidator = require('express-validator');
 var validator = require('validator');
-var morgan = require('morgan'); 
+var morgan = require('morgan');
 
 var registerController=require('./controllers/Register.controller');
 var loginController=require('./controllers/login.controller');

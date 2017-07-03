@@ -7,7 +7,6 @@
             <file>file:/var/www/html/medicalApp/model/medicinemodel.js</file>
             <file>file:/var/www/html/medicalApp/model/usermodel.js</file>
             <file>file:/var/www/html/medicalApp/index.js</file>
-            <file>file:/var/www/html/medicalApp/package.json</file>
             <file>file:/var/www/html/medicalApp/controllers/Register.controller.js</file>
             <file>file:/var/www/html/medicalApp/controllers/medecine.controller.js</file>
         </group>
